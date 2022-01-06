@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import SideBar from './SideBar'
 import ProductView from './ProductView'
 
 const Dashboard = () => {
+    const [cartItems, setCartItems] = useState([]);
     return (
         <div className="h-screen flex flex-col overflow-hidden">
-            <Header />
+            <Header cartItems={cartItems} setCartItems={setCartItems} />
             <div className='flex flex-row min-h-full'>
                 <SideBar />
-                <ProductView />
+                <ProductView setCartItems={setCartItems} />
             </div>
         </div>
     )
