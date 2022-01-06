@@ -5,10 +5,12 @@ import ProductView from './ProductView'
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className="h-screen flex flex-col overflow-hidden">
             <Header />
-            <SideBar />
-            <ProductView />
+            <div className='flex flex-row min-h-full'>
+                <SideBar />
+                <ProductView />
+            </div>
         </div>
     )
 }
