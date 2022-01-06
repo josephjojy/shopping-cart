@@ -17,7 +17,7 @@ const ProductView = () => {
     }
     useEffect(() => {
         fetchProducts();
-    }, [category])
+    }, [category,fetchProducts])
 
     if (!category)
         return (<div className='text-center w-full my-4 text-lg text-gray-700'>🡸Select a category to shop from.</div>)
