@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { URL } from '../constants';
 import Card from './Card';
 
-const ProductView = ({ setCartItems }) => {
+const ProductView = ({ cartItems, setCartItems }) => {
     const [products, setProducts] = useState();
     const [loading, setLoading] = useState(true);
     const { category } = useParams()
@@ -32,7 +32,7 @@ const ProductView = ({ setCartItems }) => {
                 <div className='text-xl'>Products under <span className='font-bold uppercase'>{category}</span></div>
                 <div className='flex flex-wrap p-6'>
                     {products.map((product, index) => (
-                        <Card key={index} product={product} setCartItems={setCartItems} />
+                        <Card key={index} product={product} cartItems={cartItems} setCartItems={setCartItems} />
                     ))}
                 </div>
             </div>

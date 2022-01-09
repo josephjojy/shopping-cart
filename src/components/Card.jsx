@@ -1,8 +1,23 @@
 import React from 'react'
 
-const Card = ({ product, setCartItems }) => {
+const Card = ({ product,cartItems, setCartItems }) => {
     const handleClick = (product) => {
-        setCartItems(prev => [...prev, product])
+        var items = [...cartItems]
+        var p = product;
+        var itemIndex = -1
+        items.map((item,index)=>{
+            if(item.id===p.id)
+                itemIndex = index;
+        })
+        if(itemIndex>=0){
+            items[itemIndex].count = parseInt(items[itemIndex].count)+1
+            setCartItems(items);
+        }
+        else{    
+            p.count = 1;
+            setCartItems(prev => [...prev, p])
+        }
+        alert(`${product.title} has been added to the cart`);
     }
     return (
         <div className='border-2 w-80 h-72 m-4 pb-4'>
