@@ -3,7 +3,7 @@ import React from 'react'
 const Cart = ({ cartItems, setCartItems, handleRemove }) => {
 
     const handleChangeCount = (e, index) => {
-        if (e.target.value == 0)
+        if (e.target.value === '0')
             handleRemove(index);
         else {
             var items = [...cartItems];
