@@ -5,7 +5,7 @@ const Card = ({ product,cartItems, setCartItems }) => {
         var items = [...cartItems]
         var p = product;
         var itemIndex = -1
-        items.map((item,index)=>{
+        items.forEach((item,index)=>{
             if(item.id===p.id)
                 itemIndex = index;
         })
