@@ -1,11 +1,15 @@
 import React from 'react'
 
-const Cart = ({ cartItems,setCartItems, handleRemove }) => {
+const Cart = ({ cartItems, setCartItems, handleRemove }) => {
 
-    const handleChangeCount = (e,index) =>{
-        var items = [...cartItems];
-        items[index].count = e.target.value;
-        setCartItems(items);
+    const handleChangeCount = (e, index) => {
+        if (e.target.value == 0)
+            handleRemove(index);
+        else {
+            var items = [...cartItems];
+            items[index].count = e.target.value;
+            setCartItems(items);
+        }
     }
     return (
         <div className='absolute top-12 right-8 border-2 p-2 w-96 max-h-96 overflow-y-scroll bg-white text-black shadow-lg space-y-2'>
@@ -17,7 +21,7 @@ const Cart = ({ cartItems,setCartItems, handleRemove }) => {
                         <div className='flex justify-between px-4'>
                             <input type="number" value={item.count} min="0" onKeyDown={(event) => {
                                 event.preventDefault();
-                            }} className="w-10 border-2" onChange={(e)=>handleChangeCount(e,index)}/>
+                            }} className="w-10 border-2" onChange={(e) => handleChangeCount(e, index)} />
                             <button className='bg-red-400 p-1 rounded-md font-bold' onClick={() => handleRemove(index)}>Remove</button>
                         </div>
                     </div>
