@@ -5,7 +5,7 @@ const Header = ({ cartItems, setCartItems }) => {
     const [isCartClicked, setIsCartClicked] = useState(false)
 
     const handleRemove = (index) => {
-        var data = cartItems;
+        var data = [...cartItems];
         data.splice(index, 1);
         setCartItems(data);
     }
@@ -23,7 +23,7 @@ const Header = ({ cartItems, setCartItems }) => {
                         <div className='bg-red-500 p-3 rounded-full'></div>
                         <div>UserName</div>
                     </div>
-                    {isCartClicked && (<Cart cartItems={cartItems} handleRemove={handleRemove} />)}
+                    {isCartClicked && (<Cart cartItems={cartItems} setCartItems={setCartItems} handleRemove={handleRemove} />)}
                 </div>
             </div>
 

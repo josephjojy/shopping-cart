@@ -10,7 +10,7 @@ const Dashboard = () => {
             <Header cartItems={cartItems} setCartItems={setCartItems} />
             <div className='flex flex-row min-h-full'>
                 <SideBar />
-                <ProductView setCartItems={setCartItems} />
+                <ProductView cartItems={cartItems} setCartItems={setCartItems} />
             </div>
         </div>
     )
